@@ -5,7 +5,7 @@ export default function Home() {
   const [logs, setLogs] = useState([]);
 
   async function loadLogs() {
-    const q = query(collection(db, "attendances"), orderBy("timestamp", "desc"), limit(50));
+    const q = query(collection(db, "absensi"), orderBy("timestamp", "desc"), limit(50));
     const snap = await getDocs(q);
     const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
     setLogs(items);

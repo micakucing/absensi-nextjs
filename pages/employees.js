@@ -7,14 +7,14 @@ export default function Employees() {
   const [list, setList] = useState([]);
 
   async function loadEmployees() {
-    const snap = await getDocs(collection(db, "employees"));
+    const snap = await getDocs(collection(db, "absensi"));
     setList(snap.docs.map(d => ({ id: d.id, ...d.data() })));
   }
 
   async function addEmployee(e) {
     e.preventDefault();
     if (!name || !tag) return;
-    await addDoc(collection(db, "employees"), { name, tag });
+    await addDoc(collection(db, "absensi"), { name, tag });
     setName("");
     setTag("");
     loadEmployees();

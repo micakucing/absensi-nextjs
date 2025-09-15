@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     }
 
     // simpan attendance
-    await addDoc(collection(db, "attendances"), {
+    await addDoc(collection(db, "absensi"), {
       tag,
       name,
       timestamp: serverTimestamp()
